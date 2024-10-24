@@ -1,35 +1,69 @@
-<head>
-  <style>
-        .slds-visual-picker_vertical .slds-visual-picker__figure {
-            height: inherit !important;
-        }
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
 
-        .runtime_appointmentbookingFlowLocation .slds-visual-picker_vertical {
-            display: inline-flex !important;
-        }
-</style>
-</head>
-<body>
-  <script src="https://woodstoxx--test.sandbox.my.site.com/TheHub/lightning/lightning.out.js"></script>
-
-  <script>
-    $Lightning.use("runtime_appointmentbooking:lightningOutGuest",
-        function() {                  // Callback once framework and app load
-            $Lightning.createComponent(
-                "lightning:flow",    // top-level component of your app
-                { },    // attributes to set on the component when created
-                "lightningContainer",    // the DOM location to insert the component
-                function(component) {            // API name of the Flow
-                  console.log('Hi from callback!');
-                    component.startFlow("Woodstoxx_Inbound_New_Guest_Appointment_v2");
-                }
-            );
-        }, 'https://woodstoxx--test.sandbox.my.site.com/TheHub'  // Site endpoint
-    );
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+ function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
 </script>
 
-  <div id="lightningContainer">
-    <p>Invoke the Lightning Component specified in the Script.</p>
-  </div>
-  
-</body>
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <FORM> element to your page.             -->
+<!--  ----------------------------------------------------------------------  -->
+
+<form action="https://floralux--qa.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DKE000000LG8S" method="POST">
+
+<input type=hidden name='captcha_settings' value='{"keyname":"Floralux_Recaptcha","fallback":"false","orgId":"00DKE000000LG8S","ts":""}'>
+<input type=hidden name="orgid" value="00DKE000000LG8S">
+<input type=hidden name="retURL" value="http://floralux.be">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+<!--  these lines if you wish to test in debug mode.                          -->
+<input type="hidden" name="debug" value=1>
+<input type="hidden" name="debugEmail" 
+value="368bf1a0.delawareconsulting.onmicrosoft.com@emea.teams.ms"> 
+<!--  ----------------------------------------------------------------------  -->
+
+<label for="name">Contactpersoonsnaam</label><input  id="name" maxlength="80" name="name" size="20" type="text" /><br>
+
+<label for="email">E-mail</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+
+<label for="phone">Telefoon</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+
+Account Type:<select  id="00NKE000000huVp" name="00NKE000000huVp" title="Account Type"><option value="">-- Geen --</option><option value="Private">Private</option>
+<option value="Company">Company</option>
+</select><br>
+
+Floralux Store:<select  id="00NKE000000hquH" name="00NKE000000hquH" title="Floralux Store"><option value="">-- Geen --</option><option value="Webshop">Webshop</option>
+<option value="Dadizele">Dadizele</option>
+<option value="Ham">Ham</option>
+<option value="Sint-Pieters-Leeuw">Sint-Pieters-Leeuw</option>
+<option value="N/A">N/A</option>
+</select><br>
+
+<label for="type">Type</label><select  id="type" name="type"><option value="">-- Geen --</option><option value="Question">Question</option>
+<option value="Complaint">Complaint</option>
+</select><br>
+
+Subtype:<select  id="00NKE000000hquO" name="00NKE000000hquO" title="Subtype"><option value="">-- Geen --</option><option value="Delivery">Delivery</option>
+<option value="Plant">Plant</option>
+<option value="Product">Product</option>
+<option value="Purchase">Purchase</option>
+<option value="Purchase Plant">Purchase Plant</option>
+<option value="Purchase Product">Purchase Product</option>
+<option value="Return Request">Return Request</option>
+<option value="Other">Other</option>
+</select><br>
+
+<label for="subject">Onderwerp</label><input  id="subject" maxlength="80" name="subject" size="20" type="text" /><br>
+
+<label for="description">Beschrijving</label><textarea name="description"></textarea><br>
+
+<div class="g-recaptcha" data-sitekey="6Len0moqAAAAAG4vNqswYLpf8undAHK7WrIAPhpJ"></div><br>
+<input type="submit" name="submit">
+
+</form>
